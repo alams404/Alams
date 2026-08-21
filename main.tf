@@ -11,7 +11,7 @@ terraform {
 
 # create resource-group
 resource "azurerm_resource_group" "alams-lb" {
-  name     = var.resource_name
+  name     = "alams-lb"
   location = "southafricanorth"
 }
 
@@ -26,7 +26,7 @@ resource "azurerm_public_ip" "alams-lb-ip" {
 
 # The load balancer itself
 resource "azurerm_lb" "load-balancer" {
-  name                = var.load-balancer-name
+  name                = var.load_balancer_name
   location            = azurerm_resource_group.alams-lb.location
   resource_group_name = azurerm_resource_group.alams-lb.name
 
