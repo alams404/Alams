@@ -11,7 +11,7 @@ terraform {
 
 # create resource-group
 resource "azurerm_resource_group" "alams-lb" {
-  name     = var.resource-name
+  name     = var.resource_name
   location = southafricanorth
 }
 
