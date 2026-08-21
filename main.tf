@@ -1,8 +1,8 @@
 terraform {
   backend "azurerm" {
-    resource_roup_ame = "alams-tfstate"
-    storage_ccount_ame = "alams404"
-    container_name= "mytfstae"
+    resource_group_name ="alams-tfsate"
+    storage_ccount_name = "alams404"
+    container_name      = "mytfstate"
     key = "alamsvm.tfstate"
   }
 }
