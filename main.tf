@@ -12,7 +12,7 @@ terraform {
 # create resource-group
 resource "azurerm_resource_group" "alams-lb" {
   name     = var.resource_name
-  location = southafricanorth
+  location = "southafricanorth"
 }
 
 # public ip for load balancer frontend
