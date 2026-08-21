@@ -4,7 +4,7 @@ on:
     branches: ["main"]
   workflow_dispatch:
 jobs:
-  build: 
+  provider: 
     runs-on: ubuntu-latest
     environment: alams
     outputs:
@@ -16,6 +16,12 @@ jobs:
         with:
           creds: ${{ secrets.SUBSCRIPTION_CREDENTIALS }}
       - uses: hashicorp/setup-terraform@v3
+
+      - name: for ssh key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/ssh/id_rsa
+          chmod 600 ~/ssh/id_rsa
         
 
       - name: terraform init
