@@ -17,11 +17,6 @@ jobs:
           creds: ${{ secrets.SUBSCRIPTION_CREDENTIALS}}
       - uses: hashicorp/setup-terraform@v3
 
-      - name: for ssh key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/ssh/id_rsa
-          chmod 600 ~/.sh/id_rsa
         
 
       - name: terraform init
