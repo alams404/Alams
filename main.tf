@@ -1,9 +1,9 @@
 terraform {
   backend "azurerm" {
-    resource_group_name ="alams-tfstate"
+    resource_group_name  = "alams-tfstate"
     storage_account_name = "alams404"
-    container_name      = "mytfsate"
-    key = "alamsvm.tfstate"
+    container_name       = "mytfsate"
+    key                  = "alamsvm.tfstate"
   }
 }
 
@@ -12,7 +12,7 @@ terraform {
 # create resource-group
 resource "azurerm_resource_group" "alams-lb" {
   name     = var.resource-name
-  location = var.resource-location
+  location = southafricanorth
 }
 
 # public ip for load balancer frontend
