@@ -1,1 +1,40 @@
 name: alams-project
+on:
+  push: 
+    branches: ["main"]
+  workflow_dispatch:
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    environment: alams
+    outputs:
+      lb-ip: ${{ steps.get_lb-ip.outputs.lb-ip}}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: azure/login@v2
+        with:
+          creds: ${{ secrets.SUBSCRIPTION_CREDENTIALS}}
+      - uses: hashicorp/terraform@v3
+
+      - name: terraform init
+        run: terraform init
+
+      - name: terraform validate
+        run: terraform validate
+      
+      - name: terraform plan
+        run: |
+          terraform plan \
+            -var="subscription_id=${{ secrets.SUBSCRIPTION_ID}}" \
+            -output=alams-plan.out
+
+      - name: terraform apply
+        run: terraform apply -auto-approve
+
+      - name: get lb-ip
+        id: get-ip
+        run: |
+          echo "lb-ip=$(terraform output -raw lb-ip)" >> $GITHUB_OUTPUT
+          
+
