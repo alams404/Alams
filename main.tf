@@ -2,7 +2,7 @@ terraform {
   backend "azurerm" {
     resource_group_name ="alams-tfstate"
     storage_account_name = "alams404"
-    container_name      = "mytfstate"
+    container_name      = "mytfsate"
     key = "alamsvm.tfstate"
   }
 }
