@@ -16,6 +16,8 @@ jobs:
         with:
           creds: ${{ secrets.SUBSCRIPTION_CREDENTIALS}}
       - uses: hashicorp/terraform@v3
+        with:
+          terraform_version: 1.7.6
 
       - name: terraform init
         run: terraform init
