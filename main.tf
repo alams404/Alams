@@ -17,11 +17,11 @@ resource "azurerm_resource_group" "alams-lb" {
 
 # public ip for load balancer frontend
 resource "azurerm_public_ip" "alams-lb-ip" {
-  name                = var.public-ip-name
+  name                = var.public_ip_name
   location            = azurerm_resource_group.alams-lb.location
   resource_group_name = azurerm_resource_group.alams-lb.name
   allocation_method   = var.allocation
-  sku                 = var.sku-type
+  sku                 = var.sku_type
 }
 
 # The load balancer itself
