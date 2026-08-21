@@ -14,7 +14,7 @@ jobs:
 
       - uses: azure/login@v2
         with:
-          creds: ${{ secrets.SUBSCRIPTION_CREDENTIALS}}
+          creds: ${{ secrets.SUBSCRIPTION_CREDENTIALS }}
       - uses: hashicorp/setup-terraform@v3
         
 
